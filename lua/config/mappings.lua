@@ -18,7 +18,7 @@ end
 Set_Config(vim.keymap, "set", {
 	{
 		"n",
-		"<Esc>h",
+		"<Esc>H",
 		":set list!<CR>",
 		{ noremap = true, silent = true, desc = "Переключить непечатные символы" },
 	},
@@ -51,21 +51,9 @@ Set_Config(vim.keymap, "set", {
 	},
 	{
 		"n",
-		"<Esc>v",
-		splitwindow("V"),
-		{ noremap = true, silent = true, desc = "Буферы: разделить по вертикали" },
-	},
-	{
-		"n",
 		"<leader>bv",
 		splitwindow("V"),
 		{ noremap = true, silent = true, desc = "Буферы: разделить по вертикали" },
-	},
-	{
-		"n",
-		"<Esc>h",
-		splitwindow("H"),
-		{ noremap = true, silent = true, desc = "Буферы: разделить по горизонтали" },
 	},
 	{
 		"n",
@@ -75,13 +63,25 @@ Set_Config(vim.keymap, "set", {
 	},
 	{
 		"n",
-		"<leader><Tab>",
+		"<leader><Tab>c",
+		":tabnew | Dashboard<CR>",
+		{ noremap = true, silent = true, desc = "Табы: новая" },
+	},
+	{
+		"n",
+		"<leader><Tab>x",
+		":tabclose<CR>",
+		{ noremap = true, silent = true, desc = "Табы: закрыть текущую" },
+	},
+	{
+		"n",
+		"<leader><Tab>n",
 		":tabnext<CR>",
 		{ noremap = true, silent = true, desc = "Табы: следующая" },
 	},
 	{
 		"n",
-		"<leader><S-Tab>",
+		"<leader><Tab>p",
 		":tabprevious<CR>",
 		{ noremap = true, silent = true, desc = "Табы: предыдущая" },
 	},

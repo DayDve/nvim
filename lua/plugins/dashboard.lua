@@ -35,7 +35,7 @@ return {
 						" ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░",
 						"",
 					},
-					disable_move = false,
+					disable_move = true,
 					shortcut = {
 						{
 							icon = "󰙅 ",
@@ -55,8 +55,7 @@ return {
 							key = "t",
 							keymap = "SPC f f",
 							key_hl = "DbIcon",
-							action =
-							':lua vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<Leader>t", true, false, true), "m", false)',
+							action = ":WhichKey <leader>t",
 						},
 						{
 							icon = " ",

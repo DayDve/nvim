@@ -18,19 +18,19 @@ return {
 			local d = ls.dynamic_node
 			local sn = ls.snippet_node
 
-			vim.keymap.set({ "i", "s" }, "<A-n>", function()
+			vim.keymap.set({ "i", "s" }, "<Esc>n", function()
 				if ls.choice_active() then
 					ls.change_choice(1)
 				end
 			end)
 
-			vim.keymap.set({ "i", "s" }, "<A-k>", function()
+			vim.keymap.set({ "i", "s" }, "<Esc>k", function()
 				if ls.expand_or_jumpable() then
 					ls.expand_or_jump()
 				end
 			end, { silent = true })
 
-			vim.keymap.set({ "i", "s" }, "<A-j>", function()
+			vim.keymap.set({ "i", "s" }, "<Esc>j", function()
 				if ls.jumpable(-1) then
 					ls.jump(-1)
 				end
@@ -41,6 +41,10 @@ return {
 					t("#!/usr/bin/bash"),
 				}),
 			})
+			require("luasnip.loaders.from_vscode").lazy_load()
 		end,
+		dependencies = {
+			"rafamadriz/friendly-snippets",
+		},
 	},
 }

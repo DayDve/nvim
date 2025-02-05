@@ -42,7 +42,7 @@ return {
 				},
 			})
 
-			Hydra({
+			TelescopeHydra = Hydra({
 				name = "Telescope",
 				hint = [[
 ┌────────────────────────────────────────────────────┐
@@ -76,11 +76,11 @@ return {
 					{ "g", cmd("Telescope live_grep") },
 					{ "k", cmd("Telescope keymaps") },
 					{ "O", cmd("Telescope vim_options") },
-					{ "p", cmd("Telescope projects"),                  { desc = "projects" } },
+					{ "p", cmd("Telescope projects"), { desc = "projects" } },
 					{ "/", cmd("Telescope current_buffer_fuzzy_find"), { desc = "search in file" } },
-					{ "?", cmd("Telescope search_history"),            { desc = "search history" } },
-					{ ";", cmd("Telescope command_history"),           { desc = "command-line history" } },
-					{ "c", cmd("Telescope commands"),                  { desc = "execute command" } },
+					{ "?", cmd("Telescope search_history"), { desc = "search history" } },
+					{ ";", cmd("Telescope command_history"), { desc = "command-line history" } },
+					{ "c", cmd("Telescope commands"), { desc = "execute command" } },
 					{ "u", cmd("silent! %foldopen! | UndotreeToggle"), { desc = "undotree" } },
 					{
 						"<Enter>",
