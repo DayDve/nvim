@@ -13,7 +13,7 @@ return {
 				},
 				tabline = {
 					lualine_a = { "buffers" }, -- Для отображения открытых буферов
-					lualine_b = { "tabs" }, -- Для отображения вкладок
+					lualine_z = { "tabs" }, -- Для отображения вкладок
 				},
 			})
 		end,

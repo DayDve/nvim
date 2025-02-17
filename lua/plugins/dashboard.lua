@@ -2,8 +2,11 @@ return {
 	{
 		"nvimdev/dashboard-nvim",
 		event = "VimEnter",
-		vim.api.nvim_set_hl(0, "DbIcon", { fg = "#96cc81", bg = "#3b3b3b", bold = true }),
-		vim.api.nvim_set_hl(0, "DbCaption", { fg = "#dfa1ef", bg = "#3b3b3b", bold = true }),
+		vim.api.nvim_set_hl(0, "DbIcon", { fg = "#8EEE55", bg = "#3b3b3b", bold = true }),
+		vim.api.nvim_set_hl(0, "DbBlue", { fg = "#51A0CE", bg = "#3b3b3b", bold = true }),
+		vim.api.nvim_set_hl(0, "DbViolet", { fg = "#7F5AD4", bg = "#3b3b3b", bold = true }),
+		vim.api.nvim_set_hl(0, "DbBrown", { fg = "#FFB55B", bg = "#3b3b3b", bold = true }),
+		vim.api.nvim_set_hl(0, "DbGreen", { fg = "#7CB35C", bg = "#3b3b3b", bold = true }),
 		config = function()
 			require("dashboard").setup({
 				config = {
@@ -39,29 +42,29 @@ return {
 					shortcut = {
 						{
 							icon = "󰙅 ",
-							icon_hl = "DbIcon",
+							icon_hl = "Dbicon",
 							desc = "Проводник",
-							group = "DbCaption",
+							group = "DbGreen",
 							key = "e",
 							keymap = "SPC e",
-							key_hl = "Number",
+							key_hl = "DbIcon",
 							action = ":NeoTreeInFileDir",
 						},
 						{
 							icon = "󰈞 ",
-							icon_hl = "DbIcon",
+							icon_hl = "Dbicon",
 							desc = "Telescope",
-							group = "DbCaption",
+							group = "DbBlue",
 							key = "t",
 							keymap = "SPC f f",
-							key_hl = "DbIcon",
+							key_hl = "Dbicon",
 							action = ":WhichKey <leader>t",
 						},
 						{
 							icon = " ",
-							icon_hl = "DbIcon",
+							icon_hl = "Dbicon",
 							desc = "Гор.клавиши",
-							group = "DbCaption",
+							group = "DbBrown",
 							key = "h",
 							key_hl = "Number",
 							action = ":FloatingHelp hotkeys",
@@ -70,10 +73,9 @@ return {
 							icon = "⊗ ",
 							icon_hl = "Title",
 							desc = "Закрыть dashboard",
-							desc_hl = "String",
 							key = "c",
 							key_hl = "Number",
-							action = ":enew",
+							action = ":bdelete",
 						},
 					},
 					footer = {

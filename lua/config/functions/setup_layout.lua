@@ -18,30 +18,19 @@ _G.ToggleInputMethod = function()
 	end
 end
 
-vim.keymap.set(
-	"n",
-	"<Leader> ",
-	ToggleInputMethod,
-	{ desc = "Переключить раскладку клавиатуры" }
-)
-vim.keymap.set(
-	"i",
-	"qq",
-	ToggleInputMethod,
-	{ desc = "Переключить раскладку клавиатуры" }
-)
+vim.keymap.set("n", "<Leader> ", ToggleInputMethod, { desc = "Переключить раскладку клавиатуры" })
+vim.keymap.set("i", "qq", ToggleInputMethod, { desc = "Переключить раскладку клавиатуры" })
 
 local lualine_exists, lualine = pcall(require, "lualine")
+local flag_ru = is_android and "[RU]" or "🇷🇺"
+local flag_us = is_android and "[EN]" or "🇺🇸"
 if lualine_exists then
 	local ll_config = lualine.get_config()
 	local add_layout_indicator = function()
 		-- Проверяем, существует ли уже индикатор раскладки
 		local layout_exists = false
 		for _, item in ipairs(ll_config.sections.lualine_z) do
-			if
-				type(item) == "table"
-				and item[1] == 'function() return vim.o.iminsert == 1 and "🇷🇺" or "🇺🇸" end'
-			then
+			if type(item) == "table" and item[1] == "function() return vim.o.iminsert == 1 and " .. flag_ru .. " or " .. flag_us .. " end" then
 				layout_exists = true
 				break
 			end
@@ -51,7 +40,7 @@ if lualine_exists then
 		if not layout_exists then
 			table.insert(ll_config.sections.lualine_z, {
 				function()
-					return vim.o.iminsert == 1 and "🇷🇺" or "🇺🇸"
+					return vim.o.iminsert == 1 and flag_ru or flag_us
 				end,
 			})
 			require("lualine").setup(ll_config)

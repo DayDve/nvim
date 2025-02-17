@@ -5,41 +5,44 @@ return {
 		config = function()
 			local null_ls = require("null-ls")
 			local nb = null_ls.builtins
+			local ensure_installed = {
+				-- Go
+				"golangci-lint",
+				is_android and nil or "goimports-reviser",
+				-- Python
+				"pylint",
+				"black",
+
+				-- Bash
+				"shellcheck",
+				"shfmt",
+				"shellharden",
+
+				-- Lua
+				is_android and nil or "lua-language-server",
+				"luacheck",
+				"stylua",
+
+				-- JSON
+				"jq",
+
+				-- YAML
+				"yamllint",
+				"yamlfmt",
+				-- js, json, css, html
+				"prettierd",
+				-- Dockerfile
+				"hadolint",
+			}
+			ensure_installed = vim.tbl_filter(function(item)
+				return item ~= nil
+			end, ensure_installed)
 
 			-- Настройка none-ls
 			null_ls.setup({
 				require("mason-null-ls").setup({
 					debug = true,
-					ensure_installed = {
-						-- Go
-						"golangci-lint",
-						"goimports-reviser",
-
-						-- Python
-						"pylint",
-						"black",
-
-						-- Bash
-						"shellcheck",
-						"shfmt",
-						"shellharden",
-
-						-- Lua
-						"lua-language-server",
-						"luacheck",
-						"stylua",
-
-						-- JSON
-						"jq",
-
-						-- YAML
-						"yamllint",
-						"yamlfmt",
-						-- js, json, css, html
-						"prettierd",
-						-- Dockerfile
-						"hadolint",
-					},
+					ensure_installed = ensure_installed,
 					automatic_installation = true,
 				}),
 				sources = {

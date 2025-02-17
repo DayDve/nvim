@@ -43,6 +43,7 @@ Set_Config(vim.keymap, "set", {
 		},
 	},
 	{ "n", "<leader>bn", ":bnext<CR>", { noremap = true, silent = true, desc = "Буферы: следующий" } },
+	{ "n", "<leader>bd", ":bdelete<CR>", { noremap = true, silent = true, desc = "Буферы: удалить" } },
 	{
 		"n",
 		"<leader>bp",

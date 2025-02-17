@@ -19,7 +19,7 @@ vim.opt.rtp:prepend(lazypath)
 -- loading lazy.nvim so that mappings are correct.
 -- This is also a good place to setup other settings (vim.opt)
 vim.g.maplocalleader = "\\"
-vim.keymap.set("n", "<leader>l", ":Lazy<CR>", { noremap = true, silent = true, desc = "Запустить менеджер плагинов Lazy" })
+vim.keymap.set("n", "<leader>ll", ":Lazy<CR>", { noremap = true, silent = true, desc = "Запустить менеджер плагинов Lazy" })
 vim.keymap.set("n", "<leader>lu", ":Lazy update<CR>", { noremap = true, silent = true, desc = "Обновление плагинов" })
 
 -- Setup lazy.nvim
