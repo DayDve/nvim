@@ -28,3 +28,18 @@ vim.api.nvim_set_keymap("n", "<Esc>n", ":lua ToggleLineNumbers()<CR>", {
 	silent = true,
 	desc = "Переключение отображения номеров строк",
 })
+vim.api.nvim_create_autocmd("TermOpen", {
+	pattern = "*",
+	callback = function()
+		-- Отключить номера строк
+		vim.wo.number = false
+		vim.wo.relativenumber = false
+	end,
+})
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "neo-tree", "lazy" },
+	callback = function()
+		vim.wo.number = false
+		vim.wo.relativenumber = false
+	end,
+})
