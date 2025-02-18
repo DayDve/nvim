@@ -9,13 +9,10 @@ return {
 				},
 				-- User defined loops
 				additions = {
-					{ "Foo", "Bar" },
-					{ "&&",  "||" },
-					{ "tic", "tac", "toe" },
 					{ "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun" },
 				},
 				allow_caps_additions = {
-					{ "Yes", "No" },
+					{ "Yes",    "No" },
 					{ "True",   "False" },
 					{ "enable", "disable" },
 					-- enable → disable
