@@ -8,7 +8,6 @@ return {
 			local ensure_installed = {
 				-- Go
 				"golangci-lint",
-				is_android and nil or "goimports-reviser",
 				-- Python
 				"pylint",
 				"black",
@@ -19,7 +18,6 @@ return {
 				"shellharden",
 
 				-- Lua
-				is_android and nil or "lua-language-server",
 				"luacheck",
 				"stylua",
 
@@ -34,9 +32,10 @@ return {
 				-- Dockerfile
 				"hadolint",
 			}
-			ensure_installed = vim.tbl_filter(function(item)
-				return item ~= nil
-			end, ensure_installed)
+			if not is_android then
+				table.insert(ensure_installed, "goimports-reviser")
+				table.insert(ensure_installed, "lua-language-server")
+			end
 
 			-- Настройка none-ls
 			null_ls.setup({
