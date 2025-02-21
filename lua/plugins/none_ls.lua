@@ -5,37 +5,29 @@ return {
 		config = function()
 			local null_ls = require("null-ls")
 			local nb = null_ls.builtins
-			local ensure_installed = {
-				-- Go
+			local common = {
 				"golangci-lint",
-				-- Python
 				"pylint",
 				"black",
-
-				-- Bash
-				"shellcheck",
 				"shfmt",
 				"shellharden",
-
-				-- Lua
 				"luacheck",
-				"stylua",
-
-				-- JSON
-				"jq",
-
-				-- YAML
 				"yamllint",
 				"yamlfmt",
-				-- js, json, css, html
 				"prettierd",
-				-- Dockerfile
 				"hadolint",
 			}
-			if not is_android then
-				table.insert(ensure_installed, "goimports-reviser")
-				table.insert(ensure_installed, "lua-language-server")
-			end
+
+			local notandroid = {
+				"goimports-reviser",
+				"lua-language-server",
+				"stylua",
+				"jq",
+				"shellcheck",
+			}
+
+			-- Объединяем таблицы в зависимости от is_android
+			local ensure_installed = vim.tbl_extend("force", common, is_android and {} or notandroid)
 
 			-- Настройка none-ls
 			null_ls.setup({
